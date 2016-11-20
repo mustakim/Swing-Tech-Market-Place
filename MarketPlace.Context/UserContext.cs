@@ -1,9 +1,6 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MarketPlace.Entity.Database_Entity;
 
 namespace MarketPlace.Context
@@ -42,11 +39,11 @@ namespace MarketPlace.Context
             }
         }
 
-        public User GetUserByName(string name)
+        public User GetUserByID(string id)
         {
             using (var context = new DatabaseContext())
             {
-                return (from user in context.Users where user.Name == name select user).FirstOrDefault();
+                return (from user in context.Users where user.Id == id select user).FirstOrDefault();
                 //can return null if No userFound
             }
         }
